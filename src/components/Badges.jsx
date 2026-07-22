@@ -315,4 +315,45 @@ export const UserBadges = ({ profile, size = 'sm', showLabels = true, useImages 
     <div className="flex flex-wrap items-center gap-1">
       {badges.map((badge, index) => (
         <span key={index} title={badge.label}>
-          <badge.component size={16} showLabel={showLabels} use
+          <badge.component size={16} showLabel={showLabels} useImage={useImages} />
+        </span>
+      ))}
+    </div>
+  );
+};
+
+// ============================================================
+// BADGE IMAGE URLS
+// ============================================================
+export const BADGE_IMAGES = {
+  verified: '/icons/verified-badge.png',
+  premium: '/icons/premium-badge.png',
+  admin: '/icons/admin-badge.png',
+  moderator: '/icons/moderator-badge.png',
+  developer: '/icons/developer-badge.png',
+  owner: '/icons/owner-badge.png',
+  staff: '/icons/staff-badge.png',
+  gold: '/icons/gold-badge.png',
+  diamond: '/icons/diamond-badge.png',
+  legend: '/icons/legend-badge.png',
+};
+
+export const getBadgeImage = (type) => {
+  return BADGE_IMAGES[type] || null;
+};
+
+// ============================================================
+// ALL BADGE ICONS FOR DISPLAY
+// ============================================================
+export const BADGE_ICONS = {
+  verified: <VerifiedBadge useImage={true} />,
+  premium: <PremiumBadge useImage={true} />,
+  admin: <AdminBadge useImage={true} />,
+  moderator: <ModeratorBadge useImage={true} />,
+  developer: <DeveloperBadge useImage={true} />,
+  owner: <OwnerBadge useImage={true} />,
+  gold: <GoldBadge useImage={true} />,
+  diamond: <DiamondBadge useImage={true} />,
+  legend: <LegendBadge useImage={true} />,
+  staff: <StaffBadge useImage={true} />,
+};
